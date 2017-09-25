@@ -5,12 +5,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SearchInputComponent } from './containers/search/search.component';
 import { SearchService } from './search.service';
-import { CharacterComponent } from './components/character/character.components';
+import { CharacterComponent } from './containers/character/character.component';
+import { CharacterItemsComponent } from './components/character-items/character-items.components';
+import { CharacterStatsComponent } from './components/character-stats/character-stats.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, ReactiveFormsModule],
-  declarations: [SearchInputComponent, CharacterComponent],
-  exports: [SearchInputComponent]
+  declarations: [
+    SearchInputComponent,
+    CharacterStatsComponent,
+    CharacterItemsComponent,
+    CharacterComponent
+  ],
+  exports: [SearchInputComponent, CharacterComponent]
 })
 export class SearchModule {
   static forRoot(): ModuleWithProviders {

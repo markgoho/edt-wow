@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -18,7 +18,7 @@ import { Character } from '../../../models/character';
         <input
           type="text"
           placeholder="Character"
-          formControlName="character">
+          formControlName="name">
         <input
           type="text"
           placeholder="Realm"
@@ -26,14 +26,13 @@ import { Character } from '../../../models/character';
         <button type="submit"
           [disabled]="form.invalid">Search</button>
       </form>
-
-      <app-character [character]="char$ | async"></app-character>
     </div>
   `
 })
 export class SearchInputComponent implements OnInit {
   form: FormGroup;
-  char$: Observable<Character>;
+
+  @Output() query = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder, private search: SearchService) {}
 
@@ -43,13 +42,12 @@ export class SearchInputComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      character: ['', Validators.required],
+      name: ['', Validators.required],
       realm: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    const { character, realm } = this.form.value;
-    this.char$ = this.search.getCharacter(character, realm);
+    this.query.emit(this.form.value);
   }
 }
