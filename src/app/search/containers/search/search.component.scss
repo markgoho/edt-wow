@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+form > * {
+  letter-spacing: 1px;
+}
+
+input {
+  color: #fff;
+  background-color: #0b122f;
+  border: 2px solid #a19371;
+  margin-bottom: 1em;
+  font-size: 1.25em;
+  padding: 0.5em;
+}
+
+input:focus {
+  border: 2px solid #edbb6e;
+}
+
+button {
+  color: #fff;
+  font-size: 1.25em;
+  background-image: linear-gradient(to top, #3f7a8b, #148980);
+  border: none;
+  padding: 0.4em 0;
+  box-shadow: 3px 3px 7px #000;
+}
+
+button:focus {
+  border: none;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}

@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   template: `
     <app-logo></app-logo>
+    <app-search></app-search>
   `
 })
-export class AppComponent {
-  title = 'app';
-}
+export class AppComponent {}
