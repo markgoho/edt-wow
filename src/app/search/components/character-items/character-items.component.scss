@@ -4,7 +4,7 @@
   border-radius: 3px;
   padding: 1em;
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: 1fr minmax(min-content, max-content);
   grid-column-gap: 2em;
   grid-row-gap: 5px;
 

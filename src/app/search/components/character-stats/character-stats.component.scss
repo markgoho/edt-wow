@@ -6,9 +6,22 @@
 }
 
 .stats-numbers {
+  @media (min-width: 37em) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+
+  @media (min-width: 64em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-group {
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: max-content 1fr;
   padding: 0 1em 1em 1em;
+  grid-gap: 0;
 }
 
 .category {
@@ -22,6 +35,7 @@
 
 .stat-name {
   color: #bc8e2e;
+  background-color: orange;
 }
 
 .stat-name,
@@ -31,5 +45,14 @@
 }
 
 .stat-value {
-  justify-self: end;
+  text-align: right;
+  background-color: pink;
+}
+
+.enhancements {
+  grid-row: span 2;
+
+  @media (min-width: 64em) {
+    grid-row: span 1;
+  }
 }
