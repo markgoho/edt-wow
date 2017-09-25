@@ -4,9 +4,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-logo',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./logo.component.scss'],
-  template: `
-    <img src="assets/edt-logo.png" alt="eagle dream technologies logo">
-  `
+  templateUrl: './logo.component.html'
 })
 export class LogoComponent implements OnInit {
   constructor() {}
