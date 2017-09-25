@@ -16,7 +16,27 @@ export class SearchService {
     );
   }
 
-  // getRealms() {
-  //   return this.http.get()
-  // }
+  getStats(character, realm) {
+    return this.http.get<Character>(
+      `${this
+        .url}/character/${realm}/${character}?fields=stats&locale=en_US&apikey=${this
+        .key}`
+    );
+  }
+
+  getEquipment(character, realm) {
+    return this.http.get<Character>(
+      `${this
+        .url}/character/${realm}/${character}?fields=items&locale=en_US&apikey=${this
+        .key}`
+    );
+  }
+
+  getItem(itemId) {
+    return this.http.get<Character>(
+      `${this.url}/item/${itemId}?locale=en_US&apikey=${this.key}`
+    );
+  }
+
+  getRealms() {}
 }
