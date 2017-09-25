@@ -1,6 +1,6 @@
 import { Character } from './character';
 
-export class Stats extends Character {
+export class CharacterStats extends Character {
   stats: {
     health: number;
     powerType: string;

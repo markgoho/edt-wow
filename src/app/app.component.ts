@@ -11,16 +11,7 @@ import { of } from 'rxjs/observable/of';
   styleUrls: ['./app.component.scss'],
   template: `
     <app-logo></app-logo>
-    <app-search (query)="onQuery($event)"></app-search>
-    <app-character [character]="characterQuery$"></app-character>
+    <app-search></app-search>
   `
 })
-export class AppComponent {
-  characterQuery$: Observable<CharacterQuery>;
-
-  constructor(private search: SearchService) {}
-
-  onQuery(event) {
-    this.characterQuery$ = of({ name: event.name, realm: event.realm });
-  }
-}
+export class AppComponent {}

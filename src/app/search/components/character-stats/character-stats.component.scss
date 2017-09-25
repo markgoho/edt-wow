@@ -1,0 +1,35 @@
+.stats {
+  background-color: rgba(14, 22, 48, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  border-radius: 3px;
+  margin-bottom: 1.5em;
+}
+
+.stats-numbers {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  padding: 0 1em 1em 1em;
+}
+
+.category {
+  grid-column: span 2;
+}
+
+.category,
+.stat-value {
+  color: #fff;
+}
+
+.stat-name {
+  color: #bc8e2e;
+}
+
+.stat-name,
+.stat-value {
+  font-size: 1.25em;
+  padding-bottom: 5px;
+}
+
+.stat-value {
+  justify-self: end;
+}

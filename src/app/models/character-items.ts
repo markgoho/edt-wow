@@ -1,7 +1,7 @@
 import { Item, Weapon } from './item';
 import { Character } from './character';
 
-export class Equipment extends Character {
+export class CharacterItems extends Character {
   items: {
     averageItemLevel: number;
     averageItemLevelEquipped: number;

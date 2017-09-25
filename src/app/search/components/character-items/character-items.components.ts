@@ -1,17 +1,12 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Equipment } from '../../../models/equipment';
+import { CharacterItems } from '../../../models/character-items';
 
 @Component({
   selector: 'app-character-items',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['character-items.component.scss'],
-  template: `
-    <div class="character" *ngIf="equipment">
-      {{ equipment | json }}
-    </div>
-  `
+  templateUrl: 'character-items.component.html'
 })
 export class CharacterItemsComponent {
-  @Input() equipment: Equipment;
+  @Input() items: CharacterItems;
 }

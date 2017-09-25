@@ -8,12 +8,12 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['character.component.scss'],
   template: `
     <div class="character" *ngIf="character">
-      <app-character-stats></app-character-stats>
-      <app-character-items></app-character-items>
+      <ng-content select="app-character-stats"></ng-content>
+      <ng-content select="app-character-items"></ng-content>
     </div>
   `
 })
-export class CharacterComponent implements OnChanges {
+export class CharacterComponent {
   @Input() character: Observable<CharacterQuery>;
   constructor(private search: SearchService) {}
 }

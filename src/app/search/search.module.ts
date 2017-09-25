@@ -8,6 +8,7 @@ import { SearchService } from './search.service';
 import { CharacterComponent } from './containers/character/character.component';
 import { CharacterItemsComponent } from './components/character-items/character-items.components';
 import { CharacterStatsComponent } from './components/character-stats/character-stats.component';
+import { SellPricePipe } from './sell-price.pipe';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, ReactiveFormsModule],
@@ -15,7 +16,8 @@ import { CharacterStatsComponent } from './components/character-stats/character-
     SearchInputComponent,
     CharacterStatsComponent,
     CharacterItemsComponent,
-    CharacterComponent
+    CharacterComponent,
+    SellPricePipe
   ],
   exports: [SearchInputComponent, CharacterComponent]
 })

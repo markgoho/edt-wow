@@ -1,0 +1,55 @@
+<div class="stats" *ngIf="stats">
+
+  <div class="stats-numbers">
+
+    <h2 class="category">Attributes</h2>
+    <div class="stat-name">Strength</div>
+    <div class="stat-value">{{ stats.stats?.str }}</div>
+    <div class="stat-name">Agility</div>
+    <div class="stat-value">{{ stats.stats.agi }}</div>
+    <div class="stat-name">Intellect</div>
+    <div class="stat-value">{{ stats.stats.int }}</div>
+    <div class="stat-name">Stamina</div>
+    <div class="stat-value">{{ stats.stats.sta }}</div>
+
+    <h2 class="category">Defense</h2>
+    <div class="stat-name">Armor</div>
+    <div class="stat-value">{{ stats.stats.armor }}</div>
+    <div class="stat-name">Dodge</div>
+    <div class="stat-value">{{ stats.stats.dodge }}</div>
+    <div class="stat-name">Parry</div>
+    <div class="stat-value">{{ stats.stats.parry }}</div>
+    <div class="stat-name">Block</div>
+    <div class="stat-value">{{ stats.stats.block }}</div>
+
+    <h2 class="category">Attack</h2>
+    <div class="stat-name">Damage</div>
+    <div class="stat-value">
+      {{ stats.stats.mainHandDmgMin }}-{{stats.stats.mainHandDmgMax}}
+    </div>
+    <div class="stat-name">Speed</div>
+    <div class="stat-value">{{ stats.stats.mainHandSpeed }}</div>
+
+    <h2 class="category">Enhancements</h2>
+    <div class="stat-name">Crit</div>
+    <div class="stat-value">{{ stats.stats.crit }}%</div>
+    <div class="stat-name">Haste</div>
+    <div class="stat-value">{{ stats.stats.hasteRatingPercent }}%</div>
+    <div class="stat-name">Mastery</div>
+    <div class="stat-value">{{ stats.stats.mastery | number:'1.0-2' }}%</div>
+    <div class="stat-name">Leech</div>
+    <div class="stat-value">{{ stats.stats.leech }}%</div>
+    <div class="stat-name">Versatility</div>
+    <div class="stat-value">{{ stats.stats.versatility / 130 | number:'1.0-2'}}%</div>
+    <div class="stat-name">Power</div>
+    <div class="stat-value">{{ stats.stats.power }}</div>
+
+    <h2 class="category">Spell</h2>
+    <div class="stat-name">Pen</div>
+    <div class="stat-value">{{ stats.stats.spellPen }}</div>
+    <div class="stat-name">Regen</div>
+    <div class="stat-value">{{ stats.stats.mana5 }}</div>
+
+  </div>
+
+</div>

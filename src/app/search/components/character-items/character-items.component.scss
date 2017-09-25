@@ -1,1 +1,48 @@
+.items {
+  background-color: rgba(14, 22, 48, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  border-radius: 3px;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-column-gap: 2em;
+  grid-row-gap: 5px;
 
+  @media (min-width: 37em) {
+    grid-template-columns: max-content 1fr max-content;
+  }
+}
+
+h2 {
+  grid-column: span 2;
+
+  @media (min-width: 37em) {
+    grid-column: span 3;
+  }
+}
+
+h2,
+.slot,
+.name {
+  color: #bc8e2e;
+}
+
+.slot,
+.name,
+.price {
+  font-size: 1.25em;
+}
+
+.name {
+  justify-self: start;
+}
+
+.price {
+  display: none;
+  color: #fff;
+  text-align: right;
+
+  @media (min-width: 37em) {
+    display: block;
+  }
+}

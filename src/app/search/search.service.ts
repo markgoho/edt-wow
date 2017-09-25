@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { Character } from '../models/character';
+import { CharacterStats } from '../models/character-stats';
+import { ItemDetail } from '../models/item-detail';
+import { CharacterItems } from '../models/character-items';
 
 @Injectable()
 export class SearchService {
@@ -17,7 +21,7 @@ export class SearchService {
   }
 
   getStats(character, realm) {
-    return this.http.get<Character>(
+    return this.http.get<CharacterStats>(
       `${this
         .url}/character/${realm}/${character}?fields=stats&locale=en_US&apikey=${this
         .key}`
@@ -25,7 +29,7 @@ export class SearchService {
   }
 
   getEquipment(character, realm) {
-    return this.http.get<Character>(
+    return this.http.get<CharacterItems>(
       `${this
         .url}/character/${realm}/${character}?fields=items&locale=en_US&apikey=${this
         .key}`
@@ -33,7 +37,7 @@ export class SearchService {
   }
 
   getItem(itemId) {
-    return this.http.get<Character>(
+    return this.http.get<ItemDetail>(
       `${this.url}/item/${itemId}?locale=en_US&apikey=${this.key}`
     );
   }

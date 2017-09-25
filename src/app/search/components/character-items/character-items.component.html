@@ -1,0 +1,32 @@
+<div class="items" *ngIf="items">
+
+  <h2>My Item Sets</h2>
+
+  <div class="slot">Helm</div>
+  <div class="name">{{items.head.name}}</div>
+  <div class="price">{{items.head.id | sellPrice}}</div>
+
+  <div class="slot">Chest</div>
+  <div class="name">{{items.chest.name}}</div>
+  <div class="price">{{items.chest.id | sellPrice}}</div>
+
+  <div class="slot">Shoulders</div>
+  <div class="name">{{items.shoulder.name}}</div>
+  <div class="price">{{items.shoulder.id | sellPrice}}</div>
+
+  <div class="slot">Legs</div>
+  <div class="name">{{items.legs.name}}</div>
+  <div class="price">{{items.legs.id | sellPrice}}</div>
+
+  <div class="slot">Feet</div>
+  <div class="name">{{items.feet.name}}</div>
+  <div class="price">{{items.feet.id | sellPrice}}</div>
+
+  <div class="slot">Trinket</div>
+  <div class="name">{{items.trinket1.name}}</div>
+  <div class="price">{{items.trinket1.id | sellPrice}}</div>
+
+  <div class="slot">Back</div>
+  <div class="name">{{items.back.name}}</div>
+  <div class="price">{{items.back.id | sellPrice}}</div>
+</div>
