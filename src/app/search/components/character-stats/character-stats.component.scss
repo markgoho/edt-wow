@@ -14,6 +14,7 @@
 
   @media (min-width: 64em) {
     grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: repeat(6, 1fr);
   }
 }
 
@@ -35,7 +36,6 @@
 
 .stat-name {
   color: #bc8e2e;
-  background-color: orange;
 }
 
 .stat-name,
@@ -46,7 +46,6 @@
 
 .stat-value {
   text-align: right;
-  background-color: pink;
 }
 
 .enhancements {
@@ -54,5 +53,12 @@
 
   @media (min-width: 64em) {
     grid-row: span 1;
+  }
+}
+
+.spell,
+.attack {
+  @media (min-width: 64em) {
+    align-self: start;
   }
 }
