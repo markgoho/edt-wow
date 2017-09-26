@@ -1,4 +1,4 @@
-<div class="stats" *ngIf="stats">
+<div class="stats" *ngIf="stats?.stats; else loading">
 
   <div class="stats-numbers">
 
@@ -7,11 +7,11 @@
       <div class="stat-name">Strength</div>
       <div class="stat-value">{{ stats.stats?.str }}</div>
       <div class="stat-name">Agility</div>
-      <div class="stat-value">{{ stats.stats.agi }}</div>
+      <div class="stat-value">{{ stats.stats?.agi }}</div>
       <div class="stat-name">Intellect</div>
-      <div class="stat-value">{{ stats.stats.int }}</div>
+      <div class="stat-value">{{ stats.stats?.int }}</div>
       <div class="stat-name">Stamina</div>
-      <div class="stat-value">{{ stats.stats.sta }}</div>
+      <div class="stat-value">{{ stats.stats?.sta }}</div>
     </div>
 
     <div class="stat-group">
@@ -39,13 +39,13 @@
     <div class="stat-group enhancements">
       <h2 class="category">Enhancements</h2>
       <div class="stat-name">Crit</div>
-      <div class="stat-value">{{ stats.stats.crit }}%</div>
+      <div class="stat-value">{{ stats.stats.crit | number:'1.0-2' }}%</div>
       <div class="stat-name">Haste</div>
-      <div class="stat-value">{{ stats.stats.hasteRatingPercent }}%</div>
+      <div class="stat-value">{{ stats.stats.hasteRatingPercent | number:'1.0-2' }}%</div>
       <div class="stat-name">Mastery</div>
       <div class="stat-value">{{ stats.stats.mastery | number:'1.0-2' }}%</div>
       <div class="stat-name">Leech</div>
-      <div class="stat-value">{{ stats.stats.leech }}%</div>
+      <div class="stat-value">{{ stats.stats.leech | number:'1.0-2' }}%</div>
       <div class="stat-name">Versatility</div>
       <div class="stat-value">{{ stats.stats.versatility / 130 | number:'1.0-2'}}%</div>
       <div class="stat-name">Power</div>
@@ -63,3 +63,17 @@
   </div>
 
 </div>
+
+<ng-template #loading>
+
+
+  <div class="loading">
+    <div class="empty" *ngIf="stats?.empty">
+      No character exists on the realm you've chosen.
+    </div>
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+</ng-template>

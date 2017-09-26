@@ -1,6 +1,7 @@
 import { Character } from './character';
 
 export class CharacterStats extends Character {
+  empty?: boolean;
   stats: {
     health: number;
     powerType: string;

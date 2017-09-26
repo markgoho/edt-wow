@@ -1,4 +1,4 @@
-<div class="items" *ngIf="items">
+<div class="items" *ngIf="items; else loading">
 
   <h2>My Item Sets</h2>
 
@@ -23,10 +23,19 @@
   <div class="price">{{items.feet.id | sellPrice}}</div>
 
   <div class="slot">Trinket</div>
-  <div class="name">{{items.trinket1.name}}</div>
-  <div class="price">{{items.trinket1.id | sellPrice}}</div>
+  <div class="name">{{items.trinket1?.name}}</div>
+  <div class="price">{{items.trinket1?.id | sellPrice}}</div>
 
   <div class="slot">Back</div>
   <div class="name">{{items.back.name}}</div>
   <div class="price">{{items.back.id | sellPrice}}</div>
 </div>
+
+<ng-template #loading>
+  <div class="loading">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+</ng-template>

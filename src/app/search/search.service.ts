@@ -5,6 +5,7 @@ import { Character } from '../models/character';
 import { CharacterStats } from '../models/character-stats';
 import { ItemDetail } from '../models/item-detail';
 import { CharacterItems } from '../models/character-items';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SearchService {
@@ -13,14 +14,14 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  getCharacter(character, realm) {
+  getCharacter(character, realm): Observable<Character> {
     return this.http.get<Character>(
       `${this.url}/character/${realm}/${character}?locale=en_US&apikey=${this
         .key}`
     );
   }
 
-  getStats(character, realm) {
+  getStats(character, realm): Observable<CharacterStats> {
     return this.http.get<CharacterStats>(
       `${this
         .url}/character/${realm}/${character}?fields=stats&locale=en_US&apikey=${this
@@ -28,7 +29,7 @@ export class SearchService {
     );
   }
 
-  getEquipment(character, realm) {
+  getEquipment(character, realm): Observable<CharacterItems> {
     return this.http.get<CharacterItems>(
       `${this
         .url}/character/${realm}/${character}?fields=items&locale=en_US&apikey=${this
@@ -36,7 +37,7 @@ export class SearchService {
     );
   }
 
-  getItem(itemId) {
+  getItem(itemId): Observable<ItemDetail> {
     return this.http.get<ItemDetail>(
       `${this.url}/item/${itemId}?locale=en_US&apikey=${this.key}`
     );

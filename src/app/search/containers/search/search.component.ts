@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormBuilder,
-  Validators
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchService } from '../../search.service';
-import { Observable } from 'rxjs/Observable';
 import { Character } from '../../../models/character';
 import { CharacterStats } from '../../../models/character-stats';
 import { Item } from '../../../models/item';
 
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'app-search',
@@ -31,7 +29,7 @@ import 'rxjs/add/operator/map';
           [disabled]="form.invalid">Search</button>
       </form>
 
-      <div class="character-results" *ngIf="searching">
+      <div class="character-results" *ngIf="stats$">
         <app-character-stats
           [stats]="stats$ | async">
         </app-character-stats>
@@ -47,7 +45,7 @@ export class SearchInputComponent implements OnInit {
   form: FormGroup;
   searching = false;
 
-  stats$: Observable<CharacterStats>;
+  stats$: Observable<any>;
   items$: Observable<any>;
 
   constructor(private fb: FormBuilder, private search: SearchService) {}
@@ -64,11 +62,13 @@ export class SearchInputComponent implements OnInit {
   }
 
   onSubmit() {
-    this.searching = true;
     const { name, realm } = this.form.value;
-    this.stats$ = this.search.getStats(name, realm);
+    this.stats$ = this.search.getStats(name, realm).catch(err => {
+      return of({ empty: true });
+    });
     this.items$ = this.search
       .getEquipment(name, realm)
       .map(character => character.items);
+    this.searching = true;
   }
 }
