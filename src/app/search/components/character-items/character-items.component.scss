@@ -1,7 +1,7 @@
 .items {
   background-color: rgba(14, 22, 48, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.21);
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 1em;
   display: grid;
   grid-template-columns: 1fr minmax(min-content, max-content);
@@ -16,16 +16,24 @@
 
 h2 {
   grid-column: span 2;
-
+  margin-top: 0;
   @media (min-width: 37em) {
     grid-column: span 3;
+  }
+}
+
+.item-set-icons {
+  grid-column: 1 / -1;
+  margin-bottom: 1em;
+  img {
+    margin-right: 1em;
   }
 }
 
 h2,
 .slot,
 .name {
-  color: #bc8e2e;
+  color: #e8ae31;
 }
 
 .slot,

@@ -50,9 +50,11 @@ button:active {
   @media (min-width: 37em) {
     padding: 2em;
   }
-  @media (min-width: 60em) {
+  @media (min-width: 73.25em) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(max-content, 1fr) max-content;
     grid-gap: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
   }
 }
