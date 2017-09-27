@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Character } from '../models/character';
-import { CharacterStats } from '../models/character-stats';
+import { CharacterStats, Stats } from '../models/character-stats';
 import { ItemDetail } from '../models/item-detail';
-import { CharacterItems } from '../models/character-items';
+import { CharacterItems, Items } from '../models/character-items';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -17,7 +17,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  getStats(character, realm): Observable<any> {
+  getStats(character, realm): Observable<Stats> {
     return this.http
       .get<CharacterStats>(
         `${this
@@ -28,7 +28,7 @@ export class SearchService {
       .map(char => char.stats);
   }
 
-  getEquipment(character, realm): Observable<any> {
+  getEquipment(character, realm): Observable<Items> {
     return this.http
       .get<CharacterItems>(
         `${this
@@ -45,5 +45,9 @@ export class SearchService {
     );
   }
 
-  getRealms() {}
+  // getRealms(): Observable<Realm[]> {
+  //   return this.http.get<Realms>(
+  //     `${this.url}/realm/status?local=en_US&apikey=${this.key}`
+  //   );
+  // }
 }
