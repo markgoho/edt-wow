@@ -7,7 +7,7 @@ import { CharacterStats } from '../../../models/character-stats';
   templateUrl: 'character-stats.component.html'
 })
 export class CharacterStatsComponent {
-  @Input() stats: CharacterStats;
+  @Input() stats: any;
 
   constructor() {}
 }

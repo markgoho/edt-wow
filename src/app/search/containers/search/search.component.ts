@@ -30,6 +30,7 @@ import 'rxjs/add/operator/catch';
       </form>
 
       <div class="character-results" *ngIf="stats$">
+        <img (click)="clearResults()" src="/assets/close.png" alt="close button">
         <app-character-stats
           [stats]="stats$ | async">
         </app-character-stats>
@@ -66,9 +67,13 @@ export class SearchInputComponent implements OnInit {
     this.stats$ = this.search.getStats(name, realm).catch(err => {
       return of({ empty: true });
     });
-    this.items$ = this.search
-      .getEquipment(name, realm)
-      .map(character => character.items);
-    this.searching = true;
+    this.items$ = this.search.getEquipment(name, realm).catch(err => {
+      return of({ empty: true });
+    });
+  }
+
+  clearResults() {
+    this.form.reset();
+    this.stats$ = null;
   }
 }

@@ -14,19 +14,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req).do(
-      (event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse && !event.body.name) {
-          event.body.empty = true;
-          console.log(event.body);
-        }
-      },
-      (err: any) => {
-        if (err instanceof HttpErrorResponse) {
-          const error = JSON.parse(err.error);
-          console.log('ERROR:', error.reason);
-        }
+    return next.handle(req).do((event: HttpEvent<any>) => {
+      if (event instanceof HttpResponse && !event.body.name) {
+        event.body.empty = true;
       }
-    );
+    });
   }
 }

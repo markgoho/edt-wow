@@ -1,88 +1,93 @@
-<div class="stats" *ngIf="stats?.stats; else loading">
+<div *ngIf="stats; else loading">
 
-  <div class="stats-numbers">
+  <div class="stats" *ngIf="!stats.empty; else empty">
+    <div class="stats-numbers">
 
-    <div class="stat-group">
-      <h2 class="category">Attributes</h2>
-      <div class="stat-name">Strength</div>
-      <div class="stat-value">{{ stats.stats?.str }}</div>
-      <div class="stat-name">Agility</div>
-      <div class="stat-value">{{ stats.stats?.agi }}</div>
-      <div class="stat-name">Intellect</div>
-      <div class="stat-value">{{ stats.stats?.int }}</div>
-      <div class="stat-name">Stamina</div>
-      <div class="stat-value">{{ stats.stats?.sta }}</div>
-    </div>
-
-    <div class="stat-group">
-      <h2 class="category">Defense</h2>
-      <div class="stat-name">Armor</div>
-      <div class="stat-value">{{ stats.stats.armor }}</div>
-      <div class="stat-name">Dodge</div>
-      <div class="stat-value">{{ stats.stats.dodge }}</div>
-      <div class="stat-name">Parry</div>
-      <div class="stat-value">{{ stats.stats.parry }}</div>
-      <div class="stat-name">Block</div>
-      <div class="stat-value">{{ stats.stats.block }}</div>
-    </div>
-
-    <div class="stat-group attack">
-      <h2 class="category">Attack</h2>
-      <div class="stat-name">Damage</div>
-      <div class="stat-value">
-        {{ stats.stats.mainHandDmgMin }}-{{stats.stats.mainHandDmgMax}}
+      <div class="stat-group">
+        <h2 class="category">Attributes</h2>
+        <div class="stat-name">Strength</div>
+        <div class="stat-value">{{ stats?.str }}</div>
+        <div class="stat-name">Agility</div>
+        <div class="stat-value">{{ stats?.agi }}</div>
+        <div class="stat-name">Intellect</div>
+        <div class="stat-value">{{ stats?.int }}</div>
+        <div class="stat-name">Stamina</div>
+        <div class="stat-value">{{ stats?.sta }}</div>
       </div>
-      <div class="stat-name">Speed</div>
-      <div class="stat-value">{{ stats.stats.mainHandSpeed }}</div>
+
+      <div class="stat-group">
+        <h2 class="category">Defense</h2>
+        <div class="stat-name">Armor</div>
+        <div class="stat-value">{{ stats?.armor }}</div>
+        <div class="stat-name">Dodge</div>
+        <div class="stat-value">{{ stats?.dodge }}</div>
+        <div class="stat-name">Parry</div>
+        <div class="stat-value">{{ stats?.parry }}</div>
+        <div class="stat-name">Block</div>
+        <div class="stat-value">{{ stats?.block }}</div>
+      </div>
+
+      <div class="stat-group attack">
+        <h2 class="category">Attack</h2>
+        <div class="stat-name">Damage</div>
+        <div class="stat-value">
+          {{ stats?.mainHandDmgMin }}-{{ stats?.mainHandDmgMax}}
+        </div>
+        <div class="stat-name">Speed</div>
+        <div class="stat-value">{{ stats?.mainHandSpeed }}</div>
+      </div>
+
+      <div class="stat-group enhancements">
+        <h2 class="category">Enhancements</h2>
+        <div class="stat-name">Crit</div>
+        <div class="stat-value">{{ stats?.crit | number:'1.0-2' }}%</div>
+        <div class="stat-name">Haste</div>
+        <div class="stat-value">{{ stats?.hasteRatingPercent | number:'1.0-2' }}%</div>
+        <div class="stat-name">Mastery</div>
+        <div class="stat-value">{{ stats?.mastery | number:'1.0-2' }}%</div>
+        <div class="stat-name">Leech</div>
+        <div class="stat-value">{{ stats?.leech | number:'1.0-2' }}%</div>
+        <div class="stat-name">Versatility</div>
+        <div class="stat-value">{{ stats?.versatility / 130 | number:'1.0-2'}}%</div>
+        <div class="stat-name">Power</div>
+        <div class="stat-value">{{ stats?.power }}</div>
+      </div>
+
+      <div class="stat-group spell">
+        <h2 class="category">Spell</h2>
+        <div class="stat-name">Pen</div>
+        <div class="stat-value">{{ stats?.spellPen }}</div>
+        <div class="stat-name">Regen</div>
+        <div class="stat-value">{{ stats?.mana5 }}</div>
+      </div>
+
     </div>
 
-    <div class="stat-group enhancements">
-      <h2 class="category">Enhancements</h2>
-      <div class="stat-name">Crit</div>
-      <div class="stat-value">{{ stats.stats.crit | number:'1.0-2' }}%</div>
-      <div class="stat-name">Haste</div>
-      <div class="stat-value">{{ stats.stats.hasteRatingPercent | number:'1.0-2' }}%</div>
-      <div class="stat-name">Mastery</div>
-      <div class="stat-value">{{ stats.stats.mastery | number:'1.0-2' }}%</div>
-      <div class="stat-name">Leech</div>
-      <div class="stat-value">{{ stats.stats.leech | number:'1.0-2' }}%</div>
-      <div class="stat-name">Versatility</div>
-      <div class="stat-value">{{ stats.stats.versatility / 130 | number:'1.0-2'}}%</div>
-      <div class="stat-name">Power</div>
-      <div class="stat-value">{{ stats.stats.power }}</div>
-    </div>
+    <div class="separator"></div>
 
-    <div class="stat-group spell">
-      <h2 class="category">Spell</h2>
-      <div class="stat-name">Pen</div>
-      <div class="stat-value">{{ stats.stats.spellPen }}</div>
-      <div class="stat-name">Regen</div>
-      <div class="stat-value">{{ stats.stats.mana5 }}</div>
+    <div class="stats-compare">
+      <h2>Compare Stats</h2>
+      <img src="/assets/compare/blood-elf.png" alt="blood-elf">
+      <img src="/assets/compare/undead.png" alt="undead">
+      <img src="/assets/compare/orc.png" alt="orc">
+      <img src="/assets/compare/troll.png" alt="troll">
+      <img src="/assets/compare/tauren.png" alt="tauren">
+      <img src="/assets/compare/goblin.png" alt="goblin">
     </div>
-
   </div>
 
-  <div class="separator"></div>
-
-  <div class="stats-compare">
-    <h2>Compare Stats</h2>
-    <img src="/assets/compare/blood-elf.png" alt="blood-elf">
-    <img src="/assets/compare/undead.png" alt="undead">
-    <img src="/assets/compare/orc.png" alt="orc">
-    <img src="/assets/compare/troll.png" alt="troll">
-    <img src="/assets/compare/tauren.png" alt="tauren">
-    <img src="/assets/compare/goblin.png" alt="goblin">
-  </div>
+  <ng-template #empty>
+    <div class="empty">
+      No character exists on the realm you've chosen.
+    </div>
+  </ng-template>
 
 </div>
 
+
+
 <ng-template #loading>
-
-
   <div class="loading">
-    <div class="empty" *ngIf="stats?.empty">
-      No character exists on the realm you've chosen.
-    </div>
     <div class="spinner" *ngIf="!stats?.empty">
       <div class="double-bounce1"></div>
       <div class="double-bounce2"></div>

@@ -8,5 +8,5 @@ import { CharacterItems } from '../../../models/character-items';
   templateUrl: 'character-items.component.html'
 })
 export class CharacterItemsComponent {
-  @Input() items: CharacterItems;
+  @Input() items: any;
 }
