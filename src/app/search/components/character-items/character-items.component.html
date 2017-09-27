@@ -1,7 +1,7 @@
 <div *ngIf="items; else loading">
 
   <div class="items" *ngIf="!items.empty">
-    <h2>My Item Sets</h2>
+    <h2>My Item Set (average iLvl: {{items.averageItemLevelEquipped }})</h2>
 
     <div class="item-set-icons">
       <img src="/assets/sets/pvp.png" alt="pvp item set">
@@ -15,15 +15,57 @@
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
 
-    <div class="slot">Chest</div>
-    <div class="name">{{items.chest?.name}}</div>
-    <div class="price">{{items.chest?.id | sellPrice}}
+    <div class="slot">Neck</div>
+    <div class="name">{{items?.neck?.name}}</div>
+    <div class="price">
+      {{items?.neck?.id | sellPrice}}
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
 
     <div class="slot">Shoulders</div>
     <div class="name">{{items.shoulder?.name}}</div>
     <div class="price">{{items.shoulder?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Back</div>
+    <div class="name">{{items?.back?.name}}</div>
+    <div class="price">
+      {{items?.back?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Chest</div>
+    <div class="name">{{items.chest?.name}}</div>
+    <div class="price">{{items.chest?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Shirt</div>
+    <div class="name">{{items?.shirt?.name}}</div>
+    <div class="price">
+      {{items?.shirt?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Wrist</div>
+    <div class="name">{{items?.wrist?.name}}</div>
+    <div class="price">
+      {{items?.wrist?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Hands</div>
+    <div class="name">{{items?.hands?.name}}</div>
+    <div class="price">
+      {{items?.hands?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Waist</div>
+    <div class="name">{{items?.waist?.name}}</div>
+    <div class="price">
+      {{items?.waist?.id | sellPrice}}
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
 
@@ -39,15 +81,43 @@
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
 
-    <div class="slot">Trinket</div>
+    <div class="slot">Finger 1</div>
+    <div class="name">{{items?.finger1?.name}}</div>
+    <div class="price">
+      {{items?.finger1?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Finger 2</div>
+    <div class="name">{{items?.finger2?.name}}</div>
+    <div class="price">
+      {{items?.finger2?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Trinket 1</div>
     <div class="name">{{items.trinket1?.name}}</div>
     <div class="price">{{items.trinket1?.id | sellPrice}}
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
 
-    <div class="slot">Back</div>
-    <div class="name">{{items.back?.name}}</div>
-    <div class="price">{{items.back?.id | sellPrice}}
+    <div class="slot">Trinket 2</div>
+    <div class="name">{{items.trinket2?.name}}</div>
+    <div class="price">{{items.trinket2?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot">Main Hand</div>
+    <div class="name">{{items?.mainHand?.name}}</div>
+    <div class="price">
+      {{items?.mainHand?.id | sellPrice}}
+      <img src="/assets/sets/coin.png" alt="gold coin">
+    </div>
+
+    <div class="slot" *ngIf="items.offHand">Off Hand</div>
+    <div class="name" *ngIf="items.offHand">{{items?.offHand?.name}}</div>
+    <div class="price" *ngIf="items.offHand">
+      {{items?.offHand?.id | sellPrice}}
       <img src="/assets/sets/coin.png" alt="gold coin">
     </div>
   </div>

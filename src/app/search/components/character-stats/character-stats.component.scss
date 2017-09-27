@@ -30,6 +30,7 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-gap: 0;
+  margin-bottom: 1em;
 }
 
 h2 {
@@ -61,6 +62,7 @@ h2 {
 
 .enhancements {
   grid-row: span 2;
+  align-self: start;
 }
 .spinner {
   width: 40px;

@@ -460,7 +460,13 @@ template {
   src: url('/assets/fonts/roboto-condensed.woff2') format('woff2');
 }
 
-html {
+.background-image {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
   background: url('/assets/character-search-background-mobile.jpg') no-repeat
     center center fixed;
   background-size: cover;

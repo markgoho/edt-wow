@@ -13,18 +13,22 @@
         <div class="stat-value">{{ stats?.int }}</div>
         <div class="stat-name">Stamina</div>
         <div class="stat-value">{{ stats?.sta }}</div>
+        <div class="stat-name">Health</div>
+        <div class="stat-value">{{ stats?.health }}</div>
       </div>
 
       <div class="stat-group">
         <h2 class="category">Defense</h2>
         <div class="stat-name">Armor</div>
-        <div class="stat-value">{{ stats?.armor }}</div>
+        <div class="stat-value">{{ stats?.armor | number:'1.0-2'}}</div>
         <div class="stat-name">Dodge</div>
         <div class="stat-value">{{ stats?.dodge }}</div>
         <div class="stat-name">Parry</div>
         <div class="stat-value">{{ stats?.parry }}</div>
         <div class="stat-name">Block</div>
         <div class="stat-value">{{ stats?.block }}</div>
+        <div class="stat-name">Avoidance</div>
+        <div class="stat-value">{{ stats?.avoidanceRating }}</div>
       </div>
 
       <div class="stat-group attack">
@@ -35,6 +39,10 @@
         </div>
         <div class="stat-name">Speed</div>
         <div class="stat-value">{{ stats?.mainHandSpeed }}</div>
+        <div class="stat-name">Dps (MH)</div>
+        <div class="stat-value">{{ stats?.mainHandDps | number:'1.0-2' }}</div>
+        <div class="stat-name">Dps (OH)</div>
+        <div class="stat-value">{{ stats?.offHandDps | number:'1.0-2' }}</div>
       </div>
 
       <div class="stat-group enhancements">
