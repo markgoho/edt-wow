@@ -1,3 +1,7 @@
+export class Realms {
+  realms: Realm[];
+}
+
 export class Realm {
   type: string;
   population: string;

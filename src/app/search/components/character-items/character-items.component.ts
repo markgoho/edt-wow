@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { CharacterItems } from '../../../models/character-items';
+import { Items } from '../../../models/character-items';
 
 @Component({
   selector: 'app-character-items',
@@ -8,5 +8,5 @@ import { CharacterItems } from '../../../models/character-items';
   templateUrl: 'character-items.component.html'
 })
 export class CharacterItemsComponent {
-  @Input() items: any;
+  @Input() items: Items;
 }

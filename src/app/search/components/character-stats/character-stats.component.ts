@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CharacterStats } from '../../../models/character-stats';
+import { Stats } from '../../../models/character-stats';
 
 @Component({
   selector: 'app-character-stats',
@@ -7,7 +7,7 @@ import { CharacterStats } from '../../../models/character-stats';
   templateUrl: 'character-stats.component.html'
 })
 export class CharacterStatsComponent {
-  @Input() stats: any;
+  @Input() stats: Stats;
 
   constructor() {}
 }

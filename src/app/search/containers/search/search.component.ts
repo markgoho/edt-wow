@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchService } from '../../search.service';
-import { Character } from '../../../models/character';
-import { CharacterStats } from '../../../models/character-stats';
-import { Item } from '../../../models/item';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { Stats } from '../../../models/character-stats';
+import { Items } from '../../../models/character-items';
+import { Realm } from '../../../models/realms';
 
 @Component({
   selector: 'app-search',
@@ -21,10 +21,11 @@ import 'rxjs/add/operator/catch';
           type="text"
           placeholder="Character"
           formControlName="name">
-        <input
-          type="text"
-          placeholder="Realm"
+        <select *ngIf="realms$ | async as realms"
           formControlName="realm">
+          <option value="" selected>Select a realm</option>
+          <option *ngFor="let realm of realms" [value]="realm.name">{{realm.name}}</option>
+        </select>
         <button type="submit"
           [disabled]="form.invalid">Search</button>
       </form>
@@ -46,13 +47,15 @@ export class SearchInputComponent implements OnInit {
   form: FormGroup;
   searching = false;
 
-  stats$: Observable<any>;
-  items$: Observable<any>;
+  stats$: Observable<Stats | {}>;
+  items$: Observable<Items | {}>;
+  realms$: Observable<Realm[]>;
 
   constructor(private fb: FormBuilder, private search: SearchService) {}
 
   ngOnInit() {
     this.createForm();
+    this.realms$ = this.search.getRealms();
   }
 
   createForm() {
