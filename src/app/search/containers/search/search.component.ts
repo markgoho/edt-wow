@@ -1,12 +1,13 @@
+
+import {catchError} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchService } from '../../search.service';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
+import { Observable ,  of } from 'rxjs';
+
+
+
 import { Stats } from '../../../models/character-stats';
 import { Items } from '../../../models/character-items';
 import { Realm } from '../../../models/realms';
@@ -67,12 +68,12 @@ export class SearchInputComponent implements OnInit {
 
   onSubmit() {
     const { name, realm } = this.form.value;
-    this.stats$ = this.search.getStats(name, realm).catch(err => {
+    this.stats$ = this.search.getStats(name, realm).pipe(catchError(err => {
       return of({ empty: true });
-    });
-    this.items$ = this.search.getEquipment(name, realm).catch(err => {
+    }));
+    this.items$ = this.search.getEquipment(name, realm).pipe(catchError(err => {
       return of({ empty: true });
-    });
+    }));
   }
 
   clearResults() {

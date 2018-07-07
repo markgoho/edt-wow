@@ -1,10 +1,12 @@
+
+import {map, filter} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // Rxjs
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { Observable } from 'rxjs';
+
+
 
 // Models
 import { Character } from '../models/character';
@@ -26,9 +28,9 @@ export class SearchService {
         `${this
           .url}/character/${realm}/${character}?fields=stats&locale=en_US&apikey=${this
           .key}`
-      )
-      .filter(Boolean)
-      .map(char => char.stats);
+      ).pipe(
+      filter(Boolean),
+      map(char => char.stats));
   }
 
   getEquipment(character, realm): Observable<Items> {
@@ -37,9 +39,9 @@ export class SearchService {
         `${this
           .url}/character/${realm}/${character}?fields=items&locale=en_US&apikey=${this
           .key}`
-      )
-      .filter(Boolean)
-      .map(char => char.items);
+      ).pipe(
+      filter(Boolean),
+      map(char => char.items));
   }
 
   getItem(itemId): Observable<ItemDetail> {
@@ -50,7 +52,7 @@ export class SearchService {
 
   getRealms(): Observable<Realm[]> {
     return this.http
-      .get<Realms>(`${this.url}/realm/status?local=en_US&apikey=${this.key}`)
-      .map(realms => realms.realms);
+      .get<Realms>(`${this.url}/realm/status?local=en_US&apikey=${this.key}`).pipe(
+      map(realms => realms.realms));
   }
 }
