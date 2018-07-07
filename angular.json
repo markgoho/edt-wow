@@ -16,7 +16,12 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json",
+              "src/robots.txt"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -68,7 +73,12 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": ["src/styles.scss"],
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json",
+              "src/robots.txt"
+            ]
           }
         },
         "lint": {
