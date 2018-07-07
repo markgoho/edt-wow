@@ -6,27 +6,30 @@
   <title>EdtWow</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="msapplication-starturl" content="/">
-  <meta name="theme-color" content="#0e1630">
-
-  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+  <meta name="mobile-web-app-capable"
+        content="yes">
+  <meta name="apple-mobile-web-app-capable"
+        content="yes">
+  <meta name="msapplication-starturl"
+        content="/">
+  <meta name="theme-color"
+        content="#0e1630">
+  <meta name="description"
+        content="An application for searching the wow database for character information">
+  <link rel="manifest"
+        href="/manifest.json">
 
 </head>
 
 <body>
   <app-root></app-root>
   <div class="background-image"></div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then((registration) => console.log('SW registered'))
-        .catch((err) => console.log('SW Error', err));
-    }
-  </script>
+  <no-script>Sorry, this application requires JavaScript to use.</no-script>
 </body>
 
 </html>

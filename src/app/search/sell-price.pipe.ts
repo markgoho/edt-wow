@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchService } from './search.service';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
+
+
 
 @Pipe({
   name: 'sellPrice',
@@ -19,8 +21,8 @@ export class SellPricePipe implements PipeTransform {
       this.cachedData = null;
       this.cachedId = id;
       this.search
-        .getItem(id)
-        .map(item => item.sellPrice)
+        .getItem(id).pipe(
+        map(item => item.sellPrice))
         .subscribe(price => (this.cachedData = price));
     }
 
