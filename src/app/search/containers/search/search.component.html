@@ -1,0 +1,32 @@
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+  <label for="name">Character:
+    <input name="name"
+           type="text"
+           formControlName="name">
+  </label>
+  <label for="realm">
+    Realm:
+    <select name="realm"
+            *ngIf="realms$ | async as realms"
+            formControlName="realm">
+      <option value=""
+              selected>Select a realm</option>
+      <option *ngFor="let realm of realms"
+              [value]="realm.name">{{realm.name}}</option>
+    </select>
+  </label>
+  <button type="submit"
+          [disabled]="form.invalid">Search</button>
+</form>
+
+<div class="character-results"
+     *ngIf="stats$">
+  <img (click)="clearResults()"
+       src="/assets/close.png"
+       alt="close button">
+  <app-character-stats [stats]="stats$ | async">
+  </app-character-stats>
+  <app-character-items [items]="items$ | async">
+  </app-character-items>
+</div>
